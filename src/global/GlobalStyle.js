@@ -16,15 +16,14 @@ export const GlobalStyle = createGlobalStyle`
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:"Poppins', sans-serif";
+    font-family: 'Roboto', sans-serif;
 } 
 
 html{
-    scroll-behaviour:smooth;
+    scroll-behavior:smooth;
 }
 body,html,a{
-    font-family: 'Poppins', sans-serif;
-}
+    font-family: 'Roboto', sans-serif;
 body {
     margin:0;
     padding:0;
@@ -59,5 +58,6 @@ button{
 img,svg{
     width:100%;
     height:auto;
+}
 }
 `;

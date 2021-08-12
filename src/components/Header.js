@@ -32,10 +32,15 @@ const Nav = styled.nav`
   justify-content: space-between;
   transition: all 0.3s;
 
+  @media only Screen and (max-width:48em){
+    display: none;
+}
+
   a {
     font-weight: 600;
     line-height: 1.5;
     color: var(--white);
+    font-family: 'Roboto', sans-serif;
     &::after {
       content: "";
       display: block;
@@ -57,6 +62,7 @@ const Button = styled.button`
  border-radius: 20px;
  color: white;
  font-weight: 600;
+ font-family: 'Roboto', sans-serif;
  cursor: pointer;
  transition: all 0.2s;
 
@@ -74,6 +80,11 @@ background-color: transparent;
 width: 2rem;
 height: 2px;
 cursor: pointer;
+display: none;
+
+@media only Screen and (max-width:48em){
+    display: inline-block;
+}
 
 &::before,&::after{
     content: "";
@@ -87,15 +98,43 @@ cursor: pointer;
     transition: all 0.3s;
 }
 &::before{
-    top: -0.5rem;
-    transform: rotate(0);
+    top: ${props => (props.clicked ? "0" : "-0.5rem")};
     transform: ${(props) => (props.clicked ? "rotate(135deg)" : "rotate(0)")};
 }
 &::after{
-    top:0.5rem;
+    top: ${props => (props.clicked ? "0" : "0.5rem")};
     transform: ${(props) => (props.clicked ? "rotate(-135deg)" : "rotate(0)")};
 }
 `;
+const MobileMenu = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 2rem 0;
+position: absolute;
+top: 100%;
+left: 0;
+right: 0;
+background: rgba(53,53,63,0.95);
+border-radius: 20px;
+margin: 0.5rem;
+overflow-x: hidden;
+opacity: ${props => (
+    props.clicked? "1" : 0
+)};
+visibility: ${props => (
+    props.clicked? "visible" : "hidden"
+)};
+a{
+    color: white;
+    padding: 0.5rem;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+`
 
 function Header(){
      const [click, setClick] = useState(false);
@@ -115,6 +154,12 @@ function Header(){
             <HamburgerBtn clicked={click} onClick={handleClick}>
                 <span></span>
             </HamburgerBtn>
+            <MobileMenu clicked={click}>
+            <a href="#home" onClick={handleClick}>Home</a>
+                <a href="#about" onClick={handleClick}>About</a>
+                <a href="#services" onClick={handleClick}>Services</a>
+                <a href="#contsct" onClick={handleClick}><Button>Contact</Button></a>
+            </MobileMenu>
         </HeaderConatiner>
     )
 }
