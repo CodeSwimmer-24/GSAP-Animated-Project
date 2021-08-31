@@ -109,7 +109,7 @@ const Circle = styled.span`
 `;
 function About() {
     return (
-     <AboutSection>
+     <AboutSection id="about">
          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" height="300">
           <path fill="#0a0b10" fill-opacity="1" d="M0,160L80,154.7C160,149,320,139,480,160C640,181,800,235,960,218.7C1120,203,1280,117,1360,74.7L1440,32L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
          </svg>

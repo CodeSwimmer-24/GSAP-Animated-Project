@@ -91,7 +91,7 @@ width: 25vw;
 `;
 function Services() {
     return (
-      <ServiceSection>
+      <ServiceSection id="services">
           <Background>
               <Title>What we Do</Title>
               <Line />

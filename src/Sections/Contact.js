@@ -124,7 +124,7 @@ const Icons = styled.div`
 `
 function Contact() {
     return (
-       <ContactSection>
+       <ContactSection id="contact">
            <Title>Get in touch</Title>
            <Icons>
                <a href="">
